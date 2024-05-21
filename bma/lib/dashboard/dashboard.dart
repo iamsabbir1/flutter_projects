@@ -1,4 +1,6 @@
+import 'package:bma/dashboard/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:bma/dashboard/app_bar.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -18,71 +20,14 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.person),
-            ),
-
-            PopupMenuButton(
-              onSelected: (value) {
-                if (value == 0) {
-                  print('Settings');
-                } else {
-                  print('Logout');
-                }
-              },
-              itemBuilder: (BuildContext context) => [
-                const PopupMenuItem(
-                  value: 0,
-                  child: Text('Settings'),
-                ),
-                const PopupMenuItem(
-                  value: 1,
-                  child: Text('Logout'),
-                ),
-              ],
-            ),
-          ],
-          backgroundColor: Colors.red.shade400,
-          title: const Text('Dashboard'),
-          
+    return const Scaffold(
+        appBar: PreferredSize(
+          preferredSize:  Size.fromHeight(60),
+          child: CustomizedAppBar(),
         ),
 
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                ),
-                child: Text('Dashboard'),
-              ),
-              ListTile(
-                title: const Text('Home'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Profile'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Settings'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
-        body: const SafeArea(
+        drawer: CustomizedDrawer(),
+        body: SafeArea(
           child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
