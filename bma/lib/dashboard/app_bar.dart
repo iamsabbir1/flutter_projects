@@ -31,8 +31,8 @@ class CustomizedAppBar extends StatelessWidget implements PreferredSizeWidget {
             icon: const Icon(Icons.logout),
           ),
         ],
-        backgroundColor: Colors.red.shade400,
-        title: const Text('Dashboard'),
+        backgroundColor: Colors.red.shade900,
+        title: const Text('Dashboard',style: TextStyle(color: Colors.white),),
       );
   }
 }

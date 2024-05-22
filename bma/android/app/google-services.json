@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "333509303385",
+    "project_id": "bma-flutter-firebase",
+    "storage_bucket": "bma-flutter-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333509303385:android:e5d989546abdc3f49c6548",
+        "android_client_info": {
+          "package_name": "com.example.bma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaY6fkSfPAXQK4_yZCR8o6nozkN42YCbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

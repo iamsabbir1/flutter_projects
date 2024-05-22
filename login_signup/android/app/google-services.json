@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "365719601513",
+    "project_id": "practice-flutter-firebas-d8616",
+    "storage_bucket": "practice-flutter-firebas-d8616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365719601513:android:bdac1e798b53751763bdf8",
+        "android_client_info": {
+          "package_name": "com.example.practices"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiiWwwzyKJrRoiQ6kMoa6pf9ubmch335Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365719601513:android:c216234ffb460fb163bdf8",
+        "android_client_info": {
+          "package_name": "com.loginsignup.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiiWwwzyKJrRoiQ6kMoa6pf9ubmch335Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

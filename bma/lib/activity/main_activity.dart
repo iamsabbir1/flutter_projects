@@ -1,6 +1,6 @@
 import 'package:bma/dashboard/dashboard.dart';
-import 'package:bma/dashboard/no_user.dart';
-import 'package:bma/models/login.dart';
+import 'package:bma/no_user_dashboard/no_user.dart';
+import 'package:bma/models/signin.dart';
 import 'package:bma/models/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:bma/models/home.dart';
@@ -19,7 +19,7 @@ class _ActivityState extends State<Activity> {
 
   void switchScreen() {
     setState((){
-      activeWidget = const SignUp();
+      activeWidget = SignUp(backhome: home,);
     });
     
   }
@@ -27,9 +27,10 @@ class _ActivityState extends State<Activity> {
   void login()
   {
     setState(() {
-      activeWidget = Login(signup: switchScreen,dashboard: dashBoard);
+      activeWidget = SignIn(signup: switchScreen,dashboard: dashBoard,backhome: home,);
     });
   }
+
 
   void dashBoard()
   {
@@ -45,6 +46,17 @@ class _ActivityState extends State<Activity> {
     });
   }
 
+  void home()
+  {
+    setState(() {
+      activeWidget = Home(
+        singUp: switchScreen,
+        dashboard: noUserdashBoard,
+        login: login,
+      );
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -57,10 +69,8 @@ class _ActivityState extends State<Activity> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Container(
         child: activeWidget,
-      ),
     );
   }
 }

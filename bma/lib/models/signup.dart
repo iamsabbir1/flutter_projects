@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 
 class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+  const SignUp({super.key,required this.backhome});
 
+  final void Function() backhome;
   @override
   State<SignUp> createState() {
     return _SignUpState();
@@ -18,8 +19,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          backgroundColor: Colors.red,
-
           body: Container(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -114,7 +113,12 @@ class _SignUpState extends State<SignUp> {
           ),
         ],
       ),
-    ),      
-      );
+    ),  
+    floatingActionButton: FloatingActionButton(
+        onPressed: widget.backhome,
+        child: const Icon(Icons.arrow_back),
+      ),
+    );
+
   }
 }
