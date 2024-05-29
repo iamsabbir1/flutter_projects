@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:random/models/handletap.dart';
+
+import 'package:random/example/ex1.dart';
+import 'package:random/example/ex2.dart';
+
 import 'firebase_options.dart';
 
 Future<void> main() async
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget
   {
     return const MaterialApp(
       title: 'Random',
-      home: HandleTap(),
+      home: Ex2(),
     );
   }
 }
