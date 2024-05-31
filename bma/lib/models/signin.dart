@@ -18,36 +18,30 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              decoration: InputDecoration(
+            CustomTextField(
+                controller: _emailController,
                 hintText: 'Enter your email',
-                prefixIcon: const Icon(Icons.email),
                 labelText: 'Email',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
+                icon: Icons.email),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Enter your password',
-                prefixIcon: const Icon(Icons.lock),
-                labelText: 'Password',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
+            CustomTextField(
+              controller: _passwordController,
+              hintText: 'Enter your password',
+              labelText: 'Password',
+              icon: Icons.lock,
             ),
             const SizedBox(
               height: 30,
@@ -91,6 +85,42 @@ class _SignInState extends State<SignIn> {
         onPressed: widget.backhome,
         child: const Icon(Icons.arrow_back),
       ),
+    );
+  }
+}
+
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
+    super.key,
+    required this.controller,
+    required this.hintText,
+    required this.labelText,
+    required this.icon,
+  });
+
+  final TextEditingController controller;
+  final String hintText;
+  final String labelText;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+        hintText: hintText,
+        prefixIcon: Icon(icon),
+        labelText: labelText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter some text';
+        }
+        return null;
+      },
     );
   }
 }

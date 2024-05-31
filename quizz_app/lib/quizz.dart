@@ -50,10 +50,19 @@ class _Quiz extends State<Quiz>
       print(selectedAnswers.length);                          
       setState(() {
         activeScreen = 'result_screen';
-        screenWidget = ResultScreen(startQuiz:  switchQuestion,
+        screenWidget = ResultScreen(startQuiz:  restartQuizz,
         chooseAnswer: selectedAnswers);
       });
     }
+  }
+
+  void restartQuizz()
+  {
+    setState(() {
+      activeScreen = 'questions';
+      selectedAnswers = [];
+      screenWidget = QuestionScreen(onSelected: chooseAnswer);
+    });
   }
   
   Widget? screenWidget;
@@ -76,7 +85,7 @@ class _Quiz extends State<Quiz>
               Color.fromARGB(255, 101, 5, 228),
               Color.fromARGB(255, 119, 4, 226),
             ],
-            ),
+            ), 
           ),
           child:  screenWidget,
         ),

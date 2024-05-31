@@ -68,19 +68,6 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ]),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                        padding:const EdgeInsets.only(left: 50, right: 50, ),
-                        backgroundColor: Colors.red.shade900,
-                    ),
-                  onPressed: dashboard,
-                  child: const Text(
-                    'Skip',
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

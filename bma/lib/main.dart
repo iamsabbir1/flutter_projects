@@ -1,4 +1,3 @@
-import 'package:bma/custom_paint.dart';
 import 'package:bma/models/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget
   Widget build(BuildContext context)
   {
     return const MaterialApp(
-      home: CustomPaintWidget(),
+      home: SplashScreen(),
     );
   }
 }

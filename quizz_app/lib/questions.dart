@@ -24,6 +24,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
     setState(() {
       questionIndex++;
+        
     });
   }
 
