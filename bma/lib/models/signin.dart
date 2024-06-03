@@ -26,59 +26,61 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomTextField(
-                controller: _emailController,
-                hintText: 'Enter your email',
-                labelText: 'Email',
-                icon: Icons.email),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              controller: _passwordController,
-              hintText: 'Enter your password',
-              labelText: 'Password',
-              icon: Icons.lock,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: widget.dashboard,
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(Colors.blue),
-                  padding: WidgetStateProperty.all(
-                    const EdgeInsets.symmetric(
-                      horizontal: 150,
-                      vertical: 17,
+        child: Center(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              CustomTextField(
+                  controller: _emailController,
+                  hintText: 'Enter your email',
+                  labelText: 'Email',
+                  icon: Icons.email),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                controller: _passwordController,
+                hintText: 'Enter your password',
+                labelText: 'Password',
+                icon: Icons.lock,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: widget.dashboard,
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all(Colors.blue),
+                    padding: WidgetStateProperty.all(
+                      const EdgeInsets.symmetric(
+                        horizontal: 150,
+                        vertical: 17,
+                      ),
+                    ),
+                  ),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
                     ),
                   ),
                 ),
-                child: const Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Don\'t have an account?'),
-                TextButton(
-                  onPressed: widget.signup,
-                  child: const Text('Sign Up'),
-                ),
-              ],
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Don\'t have an account?'),
+                  TextButton(
+                    onPressed: widget.signup,
+                    child: const Text('Sign Up'),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

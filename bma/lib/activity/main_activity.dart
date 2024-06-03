@@ -39,19 +39,12 @@ class _ActivityState extends State<Activity> {
     });
   }
 
-  void noUserdashBoard()
-  {
-    setState((){
-      activeWidget = const NoUser();
-    });
-  }
 
   void home()
   {
     setState(() {
       activeWidget = Home(
         singUp: switchScreen,
-        dashboard: noUserdashBoard,
         login: login,
       );
     });
@@ -62,7 +55,6 @@ class _ActivityState extends State<Activity> {
     super.initState();
     activeWidget = Home(
       singUp: switchScreen,
-      dashboard: noUserdashBoard,
       login: login,
     );
   }

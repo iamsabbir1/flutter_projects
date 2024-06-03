@@ -27,70 +27,74 @@ class _SignUpState extends State<SignUp> {
         padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
-          child: ListView(
-            children: [
-              CustomTextField(
-                  controller: _firstnameController,
-                  hintText: 'Enter your first name',
-                  labelText: 'Firstname',
-                  icon: Icons.person),
-              CustomTextField(
-                  controller: _lastnameController,
-                  hintText: 'Enter your last name',
-                  labelText: 'Lastname',
-                  icon: Icons.person),
-              CustomTextField(
-                  controller: _emailController,
-                  hintText: 'Enter your email',
-                  labelText: 'Email',
-                  icon: Icons.email),
-              CustomTextField(
-                  controller: _phoneController,
-                  hintText: 'Enter Your Mobile Number',
-                  labelText: 'Mobile',
-                  icon: Icons.phone),
-              CustomTextField(
-                  controller: _passwordController,
-                  hintText: 'Enter your password',
-                  labelText: 'Password',
-                  icon: Icons.key),
-              CustomTextField(
-                  controller: _confirmPasswordController,
-                  hintText: 'Enter your password',
-                  labelText: 'Confirm Password',
-                  icon: Icons.key),
-              Padding(
-                padding: const EdgeInsets.all(1.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    print(_firstnameController.text);
-                    if (_formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Processing Data'),
+          child: Center(
+            
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                CustomTextField(
+                    controller: _firstnameController,
+                    hintText: 'Enter your first name',
+                    labelText: 'Firstname',
+                    icon: Icons.person),
+                CustomTextField(
+                    controller: _lastnameController,
+                    hintText: 'Enter your last name',
+                    labelText: 'Lastname',
+                    icon: Icons.person),
+                CustomTextField(
+                    controller: _emailController,
+                    hintText: 'Enter your email',
+                    labelText: 'Email',
+                    icon: Icons.email),
+                CustomTextField(
+                    controller: _phoneController,
+                    hintText: 'Enter Your Mobile Number',
+                    labelText: 'Mobile',
+                    icon: Icons.phone),
+                CustomTextField(
+                    controller: _passwordController,
+                    hintText: 'Enter your password',
+                    labelText: 'Password',
+                    icon: Icons.key),
+                CustomTextField(
+                    controller: _confirmPasswordController,
+                    hintText: 'Enter your password',
+                    labelText: 'Confirm Password',
+                    icon: Icons.key),
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print(_firstnameController.text);
+                      if (_formKey.currentState!.validate()) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Processing Data'),
+                          ),
+                        );
+                      }
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(Colors.blue),
+                      padding: WidgetStateProperty.all(
+                        const EdgeInsets.symmetric(
+                          horizontal: 150,
+                          vertical: 17,
                         ),
-                      );
-                    }
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.blue),
-                    padding: WidgetStateProperty.all(
-                      const EdgeInsets.symmetric(
-                        horizontal: 150,
-                        vertical: 17,
+                      ),
+                    ),
+                    child: const Text(
+                      'SignUp',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  child: const Text(
-                    'SignUp',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
