@@ -32,6 +32,7 @@ class _ExpensesState extends State<Expenses> {
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
         isScrollControlled: true,
+        useSafeArea: true,
         context: context,
         builder: (ctx) {
           return NewExpense(
@@ -46,7 +47,7 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
-  void _removeExpens(Expense expense) {
+  void _removeExpense(Expense expense) {
     final expenseIndex = _registeredExpenses.indexOf(expense);
 
     setState(() {
@@ -60,7 +61,9 @@ class _ExpensesState extends State<Expenses> {
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {
-          _registeredExpenses.insert(expenseIndex, expense);
+          setState(() {
+            _registeredExpenses.insert(expenseIndex, expense);
+          });
         },
       ),
     ));
@@ -80,7 +83,7 @@ class _ExpensesState extends State<Expenses> {
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpensesList(
         expenses: _registeredExpenses,
-        onRemoveExpense: _removeExpens,
+        onRemoveExpense: _removeExpense,
       );
     }
 
