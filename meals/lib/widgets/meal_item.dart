@@ -8,14 +8,16 @@ class MealItem extends StatelessWidget {
   final Meal meal;
   final void Function() onSelectMeal;
 
-
-  String get complexityText{
-    return meal.complexity.name[0].toUpperCase() + meal.complexity.name.substring(1); 
+  String get complexityText {
+    return meal.complexity.name[0].toUpperCase() +
+        meal.complexity.name.substring(1);
   }
 
-  String get affordabilityText{
-    return meal.affordability.name[0].toUpperCase() + meal.affordability.name.substring(1); 
+  String get affordabilityText {
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
   }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,12 +31,15 @@ class MealItem extends StatelessWidget {
         onTap: onSelectMeal,
         child: Stack(
           children: [
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 200,
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 200,
+              ),
             ),
             Positioned(
               bottom: 0,
@@ -71,7 +76,6 @@ class MealItem extends StatelessWidget {
                           icon: Icons.work,
                           label: complexityText,
                         ),
-
                         const SizedBox(width: 12),
                         MealItemTrait(
                           icon: Icons.attach_money,

@@ -1,0 +1,42 @@
+// Define the Kotlin version and other build script dependencies
+buildscript {
+    ext.kotlin_version = '2.0.0' // Specify your Kotlin version here
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+// Apply the Kotlin plugin
+apply plugin: 'kotlin'
+
+// Define repositories for your project dependencies
+repositories {
+    mavenCentral()
+}
+
+// Define dependencies for your project
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+// Configure all projects
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Configure the build directory for the root project
+rootProject.buildDir = "../build"
+
+// Configure subprojects, if any
+subprojects {
+    // Subproject specific configuration can go here
+}
+
+// Task configuration can go here. For example, a custom clean task, if needed.
