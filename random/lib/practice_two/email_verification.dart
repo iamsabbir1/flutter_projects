@@ -39,7 +39,10 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
     if (user!.emailVerified) {
       Navigator.of(context).pushReplacement(
         // Navigate to your app's home page after verification
-        MaterialPageRoute(builder: (context) => const UserScreen()),
+        MaterialPageRoute(
+            builder: (context) => UserScreen(
+                  userEmail: user!.email!,
+                )),
       );
     } else {
       // Show a message or handle accordingly
