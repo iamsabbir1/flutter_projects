@@ -3,8 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:random/practice_two/user_authentication.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
-
+  const SignupScreen({super.key});
   @override
   _SignupScreenState createState() => _SignupScreenState();
 }
@@ -45,68 +44,84 @@ class _SignupScreenState extends State<SignupScreen> {
       appBar: AppBar(
         title: const Text('Signup'),
       ),
-      body: Column(
-        children: [
-          TextField(
-            controller: _emailController,
-            decoration: const InputDecoration(
-              label: Text(
-                'Email',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            style: const TextStyle(color: Colors.white),
-          ),
-          TextField(
-            controller: _passwordController,
-            decoration: const InputDecoration(
-              label: Text(
-                'Password',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            style: const TextStyle(color: Colors.white),
-            obscureText: true,
-          ),
-          _isLoading
-              ? Container(
-                  width: 50,
-                  height: 30,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(10),
-                      right: Radius.circular(10),
-                    ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(
+          top: 50,
+          left: 20,
+          right: 20,
+        ),
+        child: Column(
+          children: [
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                label: Text(
+                  'Email',
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
-                  child: const CircularProgressIndicator(),
-                )
-              : ElevatedButton(
-                  onPressed: _signup,
-                  child: const Text('Sign Up'),
                 ),
-          const SizedBox(height: 20),
-          const Text(
-            'Already have an account?',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
+              ),
+              style: const TextStyle(color: Colors.white),
             ),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const UserAuthentication(),
+            const SizedBox(height: 15),
+            TextField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                label: Text(
+                  'Password',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              );
-            },
-            child: const Text('Log in'),
-          ),
-        ],
+              ),
+              style: const TextStyle(color: Colors.white),
+              obscureText: true,
+            ),
+            const SizedBox(height: 20),
+            _isLoading
+                ? Container(
+                    width: 50,
+                    height: 30,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.horizontal(
+                        left: Radius.circular(10),
+                        right: Radius.circular(10),
+                      ),
+                    ),
+                    child: const CircularProgressIndicator(),
+                  )
+                : ElevatedButton(
+                    onPressed: _signup,
+                    child: const Text('Sign Up'),
+                  ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Already have an account?',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const UserAuthentication(),
+                      ),
+                    );
+                  },
+                  child: const Text('Log in'),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

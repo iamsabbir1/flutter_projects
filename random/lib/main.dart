@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:random/practice_three/practice.dart';
 import 'package:random/practice_two/signup.dart';
 import 'package:random/practice_two/user_authentication.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,16 +29,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData().copyWith(
-        colorScheme: kColorScheme,
-        scaffoldBackgroundColor: kColorScheme.onSecondary,
-        textTheme: GoogleFonts.latoTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
+    return const MaterialApp(
+      // theme: ThemeData().copyWith(
+      //   colorScheme: kColorScheme,
+      //   scaffoldBackgroundColor: kColorScheme.onSecondary,
+      //   textTheme: GoogleFonts.latoTextTheme(
+      //     Theme.of(context).textTheme,
+      //   ),
+      // ),
       title: 'Random',
-      home: const SignupScreen(),
+      home: Practice(),
     );
   }
 }
